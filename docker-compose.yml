@@ -1,4 +1,8 @@
 version: '3'
+
+volumes:
+  winery-repository:
+
 services:
   container:
     image: opentosca/container:latest
@@ -71,6 +75,8 @@ services:
       - '8080:8080'
     networks:
       - opentosca
+    volumes:
+      - winery-repository:/var/opentosca/repository
   dind:
     image: docker:20.10-dind
     privileged: true
